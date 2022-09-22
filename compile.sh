@@ -26,6 +26,7 @@ EXT_RECURSIONGUARD_VERSION="0.1.0"
 EXT_LIBDEFLATE_VERSION="0.1.0"
 EXT_MORTON_VERSION="0.1.2"
 EXT_XXHASH_VERSION="0.1.1"
+EXT_SNAPPY_VERSION="bfefe4906e0abb1f6cc19005b35f9af5240d9025"
 
 function write_out {
 	echo "[$1] $2"
@@ -849,6 +850,14 @@ get_github_extension "morton" "$EXT_MORTON_VERSION" "pmmp" "ext-morton"
 
 get_github_extension "xxhash" "$EXT_XXHASH_VERSION" "pmmp" "ext-xxhash"
 
+echo -n "  snappy: downloading $EXT_SNAPPY_VERSION..."
+git clone https://github.com/kjdev/php-ext-snappy.git "$BUILD_DIR/php/ext/snappy" >> "$DIR/install.log" 2>&1
+cd "$BUILD_DIR/php/ext/snappy"
+git checkout "$EXT_SNAPPY_VERSION" >> "$DIR/install.log" 2>&1
+git submodule update --init --recursive >> "$DIR/install.log" 2>&1
+cd "$BUILD_DIR"
+echo " done!"
+
 echo -n "[PHP]"
 
 if [ "$DO_OPTIMIZE" != "no" ]; then
@@ -979,6 +988,7 @@ $HAVE_MYSQLI \
 --with-crypto \
 --enable-recursionguard \
 --enable-xxhash \
+--enable-snappy \
 $HAVE_VALGRIND \
 $CONFIGURE_FLAGS >> "$DIR/install.log" 2>&1
 echo -n " compiling..."
