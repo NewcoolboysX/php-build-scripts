@@ -1,6 +1,8 @@
 #!/bin/bash
 [ -z "$PHP_VERSION" ] && PHP_VERSION="8.1.13"
 
+echo "5.2.73.210 libzip.org" >> /etc/hosts
+
 ZLIB_VERSION="1.2.13"
 GMP_VERSION="6.2.1"
 CURL_VERSION="curl-7_86_0"
