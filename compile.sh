@@ -850,7 +850,7 @@ get_github_extension "morton" "$EXT_MORTON_VERSION" "pmmp" "ext-morton"
 
 get_github_extension "xxhash" "$EXT_XXHASH_VERSION" "pmmp" "ext-xxhash"
 
-get_github_extension "encoding" "$EXT_XXHASH_VERSION" "pmmp" "ext-encoding"
+get_github_extension "encoding" "$EXT_ENCODING_VERSION" "pmmp" "ext-encoding"
 
 echo -n "[PHP]"
 
