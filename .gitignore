@@ -1,7 +1,7 @@
 bin/
 bin-debug/
 install_data/
-download_cache/
+download_cache/a
 test.dSYM/
 install.log
 temp_data/
